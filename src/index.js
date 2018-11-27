@@ -168,6 +168,21 @@ class Switch extends React.Component {
   }
 }
 
+// loop component
+class OrderedList extends React.Component {
+  render () {
+    let elements = this.props.list.map((e, index) => <li key={ index }>{ e }</li>)
+    return (
+      <ol>
+        { elements }
+        {
+          this.props.list.map(e => <li key={ e }>{ e }</li>)
+        }
+      </ol>
+    )
+  }
+}
+
 // main components
 class App extends React.Component {
   render () {
@@ -193,8 +208,12 @@ class App extends React.Component {
           <ClickCounter />
         </div>
         <div>
-          <h2>Conditional Rendering</h2>
+          <h2>Conditional Rendering Samples</h2>
           <Switch />
+        </div>
+        <div>
+          <h2>Loop Samples</h2>
+          <OrderedList list={ [ 'apple', 'orange', 'melon' ] } />
         </div>
       </div> 
     )
